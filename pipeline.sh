@@ -8,12 +8,14 @@ read -s password
 
 git clone https://$username:$password@github.com/ritwiksin/CI-CD-example.git
 
-cd CI-CD-example
+cd CI-CD-example/app
 
 docker build -t ritwik3aug/ci-cd-example .
 
 docker login
 
 docker push ritwik3aug/ci-cd-example
+
+cd ..
 
 kubectl apply -f app-canary.yaml
