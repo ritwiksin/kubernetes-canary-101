@@ -24,7 +24,7 @@ Let's deploy the Jenkins Helm chart to our cluster.
 
 Let's start by creating a namespace and persistant volume for Jenkins.
 
-$ kubectl create namespace jenkins
+$ kubectl create namespace jenkins-project
 
 $ kubectl apply -f jenkins-vol.yaml
 
