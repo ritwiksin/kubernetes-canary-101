@@ -13,6 +13,7 @@ spec:
     metadata:
       labels:
         app: app
+        version: v2
     spec:
       containers:
       - name: app
