@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app
+  labels:
+    app: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+        version: v1
+    spec:
+      containers:
+      - name: app
+        image: ritwik3aug/ci-cd-example
+        ports:
+        - containerPort: 5000
+
