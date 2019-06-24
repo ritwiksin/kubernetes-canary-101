@@ -18,4 +18,4 @@ docker push ritwik3aug/ci-cd-example
 
 cd ..
 
-kubectl apply -f app-canary.yaml
+kubectl apply -f app-canary.yaml -n app
