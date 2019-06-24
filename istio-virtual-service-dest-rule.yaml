@@ -1,7 +1,7 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: app
+  name: app-virtualservice
 spec:
   hosts:
     - app
@@ -19,7 +19,7 @@ spec:
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
-  name: app
+  name: app-destinationrule
 spec:
   host: app
   subsets:
