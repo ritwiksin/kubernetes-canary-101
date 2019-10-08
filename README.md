@@ -1,42 +1,40 @@
 # CI-CD-example
 
-I have created a Python app and the Dockerfile for the app.
+We have a Python app, Dockerfile for the app and the Kubernetes manifest. 
+This app returns Hello. 
+
+Let's test Canary for this app!
 
 creating Docker image
-
-$ docker build -t ritwik3aug/ci-cd-example .
-
-$ docker login
-
-$ docker push ritwik3aug/ci-cd-example:latest
-
+```
+$ docker build -t kubernetes-canary-101 .
+```
 Start the minikube
-
+```
 $ minikube start
-
+```
 deploy the application
-
+```
 $ kubectl apply -f app.yaml
-
+```
 Access the service:
-
+```
 $ kubectl port-forward svc/app 8000:80
+```
 
 
-
-Clone the repo, make changes in the app and push.
-
+Clone the repo, make changes in the app response, build the Docker image and push it to the Docker repo again.
 
 Run the script the script to build an new image, push it to Docker repo and deploy canary version.
+```
+$ chmod +x deploy.sh
 
-$ chmod +x pipeline.sh
-
-$ ./pipeline.sh
-
+$ ./deploy.sh
+```
 Access the service:
-
+```
 $ kubectl port-forward svc/app 8000:80
-
+```
 ---
 
 Let's deploy the Jenkins Helm chart to our cluster. 
