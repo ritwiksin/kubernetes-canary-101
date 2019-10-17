@@ -1,5 +1,8 @@
 # kubernetes-canary-101
 
+#### We will be testing out Canary deployment using Istio. 
+#### Istio provides the control needed to deploy canary services. The idea is to introduce a new version of a service by first testing it using a small percentage of user traffic, and then if all goes well, increase, possibly gradually in increments, the percentage while simultaneously phasing out the old version. If anything goes wrong along the way, we abort and rollback to the previous version. For now, we're randomly routing a small percentage of traffic to the new version. But, we can also route the traffic based on the region, user or request properties.
+
 We have a Python app, Dockerfile for the app and the Kubernetes manifest. 
 
 Let's test Canary. Assuming we have the kubectl configured and Istio installed in the kubernetes cluster.
@@ -23,8 +26,6 @@ $ for i in {1..10}; do \
     curl -k localhost:8000 \
   done
 ```
-
-### Istio provides the control needed to deploy canary services. The idea is to introduce a new version of a service by first testing it using a small percentage of user traffic, and then if all goes well, increase, possibly gradually in increments, the percentage while simultaneously phasing out the old version. If anything goes wrong along the way, we abort and rollback to the previous version. For now, we're randomly routing a small percentage of traffic to the new version. But, we can also route the traffic based on the region, user or request properties.
 
 Now, change the app response, build the Docker image and push it to the Docker repo again.
 Deploy the canary version.
